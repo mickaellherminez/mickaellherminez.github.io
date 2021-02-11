@@ -1,7 +1,91 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Lherminez Mickaël</title>
+    <meta name="author" content="Alvaro Trigo Lopez" />
+    <meta name="description" content="fullPage full-screen navigation and sections control menu." />
+    <meta name="keywords" content="fullpage,jquery,demo,screen,fullscreen,navigation,control arrows, dots" />
+    <meta name="Resource-type" content="Document" />
+
+
+    <link rel="stylesheet" type="text/css" href="fullpage.css" />
+    <link rel="stylesheet" type="text/css" href="examples.css" />
+    <style>
+        /* Style for our header texts
+        * --------------------------------------- */
+        h1 {
+            font-size: 5em;
+            font-family: arial, helvetica;
+            color: #fff;
+            margin: 0;
+        }
+
+        .intro p {
+            color: #fff;
+        }
+
+        /* Centered texts in each section
+        * --------------------------------------- */
+        .section {
+            text-align: center;
+        }
+
+        /* Bottom menu
+        * --------------------------------------- */
+        #infoMenu li a {
+            color: #fff;
+        }
+    </style>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+
+    <div id="fullpage">
+        <div class="section " id="section0">
+            <div class="intro">
+                <h1>Lherminez Mickaël</h1>
+                <p>This example will turn to normal scroll when the window size gets smaller than 900px width</p>
+            </div>
+        </div>
+        <div class="section" id="section1">
+            <div class="slide" id="slide1">
+                <div class="intro">
+                    <h1>Ideal for small screens</h1>
+                </div>
+            </div>
+
+            <div class="slide" id="slide2">
+                <h1>This example uses responsiveWidth: 900</h1>
+            </div>
+
+        </div>
+        <div class="section" id="section2">
+            <div class="intro">
+                <h1>Keep it simple!</h1>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="fullpage.js"></script>
+    <script type="text/javascript" src="examples.js"></script>
+
+    <script type="text/javascript">
+        var myFullpage = new fullpage('#fullpage', {
+            anchors: ['firstPage', 'secondPage', '3rdPage'],
+            sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+            navigation: true,
+            navigationPosition: 'right',
+            navigationTooltips: ['First page', 'Second page', 'Third and last page'],
+            responsiveWidth: 900,
+            afterResponsive: function (isResponsive) {
+
+            }
+
+        });
+    </script>
 </body>
+
 </html>
