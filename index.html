@@ -12,8 +12,8 @@
 
     <link rel="stylesheet" type="text/css" href="fullpage.css" />
     <link rel="stylesheet" type="text/css" href="examples.css" />
-    <link href="animate.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="animate.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
         /* Style for our header texts
         * --------------------------------------- */
@@ -44,48 +44,117 @@
 
 <body>
 
-
+    
     <div id="fullpage">
-        <div class="section " id="section0">
-            <div class="intro">
-                <h1 class="tlt">Lherminez Mickaël</h1>
-                <h2 class="tlt">This example will turn to normal scroll when the window size gets smaller than 900px
-                    width</h2>
-            </div>
+        <ul id="menu">
+        <li data-menuanchor="accueilPage" class="active"><a href="#accueilPage">Accueil</a></li>
+        <li data-menuanchor="realisationsPage"><a href="#realisationsPage">Réalisations</a></li>
+        <li data-menuanchor="laboCodePage"><a href="#laboCodePage">Labo Code</a></li>
+        <li data-menuanchor="contactPage"><a href="#contactPage">Contact</a></li>
+    </ul>
+        <div class="section">
+            <h1 class="tlt">Lherminez Mickaël</h1>
+            <h2 class="tlt">This example will turn to normal scroll when the window size gets smaller than 900px
+                width</h2>
+
         </div>
-        <div class="section" id="section1">
+        <div class="section">
             <div class="slide" id="slide1">
-                <div class="intro">
-                    <h1>Ideal for small screens</h1>
-                </div>
+                <h1>Mes réalisations</h1>
             </div>
+
 
             <div class="slide" id="slide2">
                 <h1>This example uses responsiveWidth: 900</h1>
             </div>
 
         </div>
-        <div class="section" id="section2">
-            <div class="intro">
-                <h1>Keep it simple!</h1>
-            </div>
+        <div class="section">
+            <h1>laboratoire de code</h1>
+        </div>
+        <div class="section">
+            <h1>Contact</h1>
         </div>
     </div>
 
     <script type="text/javascript" src="fullpage.js"></script>
     <script type="text/javascript" src="index.js"></script>
-    <script src="jquery.min.js"></script>
-    <script src="jquery.fittext.js"></script>
-    <script src="jquery.lettering.js"></script>
-    <script src="jquery.textillate.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.fittext.js"></script>
+    <script type="text/javascript" src="jquery.lettering.js"></script>
+    <script type="text/javascript" src="jquery.textillate.js"></script>
 
     <script type="text/javascript">
         var myFullpage = new fullpage('#fullpage', {
-            anchors: ['firstPage', 'secondPage', '3rdPage'],
-            sectionsColor: ['#000070', '#4527a0', '#7953d2'],
-            navigation: true,
+
+            menu: '#menu',
+            // lockAnchors: false,
+            // anchors: ['firstPage', 'secondPage'],
+            // navigation: false,
+            // navigationPosition: 'right',
+            // navigationTooltips: ['firstSlide', 'secondSlide'],
+            // showActiveTooltip: false,
+            // slidesNavigation: true,
+            // slidesNavPosition: 'bottom',
+
+            //Scrolling
+            css3: true,
+            // scrollingSpeed: 700,
+            // autoScrolling: true,
+            // fitToSection: true,
+            // fitToSectionDelay: 1000,
+            // scrollBar: false,
+            // easing: 'easeInOutCubic',
+            // easingcss3: 'ease',
+            // loopBottom: false,
+            // loopTop: false,
+            // loopHorizontal: true,
+            // continuousVertical: false,
+            // continuousHorizontal: false,
+            // scrollHorizontally: false,
+            // interlockedSlides: false,
+            // dragAndMove: false,
+            // offsetSections: false,
+            // resetSliders: false,
+            // fadingEffect: false,
+            // normalScrollElements: '#element1, .element2',
+            // scrollOverflow: false,
+            // scrollOverflowReset: false,
+            // scrollOverflowOptions: null,
+            // touchSensitivity: 15,
+            // bigSectionsDestination: null,
+
+            //Accessibility
+            keyboardScrolling: true,
+            animateAnchor: true,
+            recordHistory: true,
+
+            //Design
+            // controlArrows: true,
+            // verticalCentered: true,
+            // sectionsColor: ['#ccc', '#fff'],
+            // paddingTop: '3em',
+            // paddingBottom: '10px',
+            // fixedElements: '#header, .footer',
+            // responsiveWidth: 0,
+            // responsiveHeight: 0,
+            // responsiveSlides: false,
+            // parallax: false,
+            // parallaxOptions: { type: 'reveal', percentage: 62, property: 'translate' },
+            cards: true,
+            // cardsOptions: { perspective: 100, fadeContent: true, fadeBackground: true },
+
+            //Custom selectors
+            // sectionSelector: '.section',
+            // slideSelector: '.slide',
+
+            // lazyLoading: true,
+
+            anchors: ['accueilPage', 'realisationsPage', 'laboCodePage', 'contactPage'],
+            sectionsColor: ['#69F0AE', '#4527a0', '#7953d2', '#757575'],
+            navigation: false,
             navigationPosition: 'right',
-            navigationTooltips: ['First page', 'Second page', 'Third and last page'],
+            // navigationTooltips: ['First page', 'Second page', 'Third and last page'],
             responsiveWidth: 900,
             afterResponsive: function (isResponsive) {
 
