@@ -15,23 +15,55 @@
     <link rel="stylesheet" type="text/css" href="animate.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <style>
-        /* Style for our header texts
-        * --------------------------------------- */
-        h1 {
-            font-size: 5em;
-            font-family: arial, helvetica;
-            color: #fff;
-            margin: 0;
+        @font-face {
+            font-family: 'Lucida Console';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Lucida Console'), local('LucidaConsole-Regular'),
+                url(lucida-console.woff) format('woff'),
+                url(lucida-console.ttf) format('truetype');
         }
 
-        .intro p {
-            color: #fff;
+        h1 {
+            color: #D500F9 !important;
+            font-family: 'Lucida Console', arial;
+            font-size: 72px;
         }
+
+        .description {
+            text-align: left!important;;
+            padding-left: 20px;
+            color: white !important;
+            font-family: 'Lucida Console', arial;
+            font-size: 72px;
+        }
+
+        #pink {
+            color: #D500F9 !important;
+        }
+
+        #green {
+            color: #1DE9B6 !important;
+        }
+
+        #yellow {
+            color: yellow !important;
+        }
+
+        /* .terminal-green {
+            color: #1DE9B6 !important;
+        }
+
+        .terminal-pink {
+            color: #D500F9 !important;
+            ;
+        } */
 
         /* Centered texts in each section
         * --------------------------------------- */
         .section {
-            text-align: center;
+            text-align: left;
+            padding-left: 20px;
         }
 
         /* Bottom menu
@@ -44,33 +76,34 @@
 
 <body>
 
-    
+
     <div id="fullpage">
         <ul id="menu">
-        <li data-menuanchor="accueilPage" class="active"><a href="#accueilPage">Accueil</a></li>
-        <li data-menuanchor="realisationsPage"><a href="#realisationsPage">Réalisations</a></li>
-        <li data-menuanchor="laboCodePage"><a href="#laboCodePage">Labo Code</a></li>
-        <li data-menuanchor="contactPage"><a href="#contactPage">Contact</a></li>
-    </ul>
+            <li data-menuanchor="accueilPage" class="active"><a href="#accueilPage">Accueil</a></li>
+            <li data-menuanchor="realisationsPage"><a href="#realisationsPage">Réalisations</a></li>
+            <li data-menuanchor="laboCodePage"><a href="#laboCodePage">Labo Code</a></li>
+            <li data-menuanchor="contactPage"><a href="#contactPage">Contact</a></li>
+        </ul>
         <div class="section">
-            <h1 class="tlt">Lherminez Mickaël</h1>
-            <h2 class="tlt">This example will turn to normal scroll when the window size gets smaller than 900px
-                width</h2>
+            <h1><span class="tlt" id="green">mick@ël-LHERMINEZ</span> <span class="tlt" id="pink">DEVELOPPEUR/WEB</span><span class="tlt" id="yellow">~</span></h1>
 
+            <div class="tlt2 description">
+                <p>I have been in IT for 3 years (after graduating as a software developer).</p>
+                <p>During my training, I learned to program several languages ​​(C #, Java, Scala, JavaScript, PHP) and I also used different types of databases (Microsoft SQL server, Postgre, MySQL).</p>
+                <p>Since 2016, I have worked as a full stack developer at Leansys, a company based in northern France. This is where I learned modern web development. I had the opportunity to take part in several application projects, either front-end (AngularJs, Angular 2,4, 5, 6, Vue.js) or back-end (NodeJs, Java, PHP, Cassandra, Couchbase, MongoDB).</p>
+            </div>
+            
         </div>
         <div class="section">
             <div class="slide" id="slide1">
                 <h1>Mes réalisations</h1>
             </div>
-
-
             <div class="slide" id="slide2">
                 <h1>This example uses responsiveWidth: 900</h1>
             </div>
-
         </div>
         <div class="section">
-            <h1>laboratoire de code</h1>
+            <h1>Laboratoire de code</h1>
         </div>
         <div class="section">
             <h1>Contact</h1>
@@ -151,7 +184,7 @@
             // lazyLoading: true,
 
             anchors: ['accueilPage', 'realisationsPage', 'laboCodePage', 'contactPage'],
-            sectionsColor: ['#69F0AE', '#4527a0', '#7953d2', '#757575'],
+            sectionsColor: ['#2c2d28', '#4527a0', '#7953d2', '#757575'],
             navigation: false,
             navigationPosition: 'right',
             // navigationTooltips: ['First page', 'Second page', 'Third and last page'],
@@ -166,6 +199,66 @@
 
     <script>
         $('.tlt').textillate({
+            // the default selector to use when detecting multiple texts to animate
+            selector: '.texts',
+
+            // enable looping
+            loop: false,
+
+            // sets the minimum display time for each text before it is replaced
+            minDisplayTime: 2000,
+
+            // sets the initial delay before starting the animation
+            // (note that depending on the in effect you may need to manually apply
+            // visibility: hidden to the element before running this plugin)
+            initialDelay: 0,
+
+            // set whether or not to automatically start animating
+            autoStart: true,
+
+            outEffects: ['rollIn'],
+            // custom set of 'in' effects. This effects whether or not the
+            // character is shown/hidden before or after an animation
+            inEffects: ['rollIn'],
+
+            // in animation settings
+            in: {
+                // set the effect name
+                effect: 'rollIn',
+
+                // set the delay factor applied to each consecutive character
+                delayScale: 1.5,
+
+                // set the delay between each character
+                delay: 50,
+
+                // set to true to animate all the characters at the same time
+                sync: false,
+
+                // randomize the character sequence
+                // (note that shuffle doesn't make sense with sync = true)
+                shuffle: false,
+
+                // reverse the character sequence
+                // (note that reverse doesn't make sense with sync = true)
+                reverse: false,
+
+                // callback that executes once the animation has finished
+                callback: function () { }
+            },
+
+            // callback that executes once textillate has finished
+            callback: function () { },
+
+            // set the type of token to animate (available types: 'char' and 'word')
+            type: 'char'
+        });
+
+
+
+
+
+        $('.tlt2').textillate({
             // the default selector to use when detecting multiple texts to animate
             selector: '.texts',
 
@@ -231,7 +324,7 @@
             callback: function () { },
 
             // set the type of token to animate (available types: 'char' and 'word')
-            type: 'char'
+            type: 'word'
         });
     </script>
 </body>
